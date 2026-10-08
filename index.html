@@ -1,5 +1,199 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>名刺金庫</title>
-<meta http-equiv="refresh" content="0; url=support.html">
-</head><body><p><a href="support.html">名刺金庫 サポート</a> ／ <a href="privacy.html">プライバシーポリシー</a></p></body></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>名刺金庫｜クラウドに預けない名刺管理</title>
+<meta name="description" content="名刺を撮るだけで、氏名・会社・電話を iPhone の中で読み取って整理。名刺の情報を外部に送らないので、職場の決まりでクラウドの名刺アプリが使えない方にも。20枚まで無料・800円の買い切り。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="名刺金庫｜クラウドに預けない名刺管理">
+<meta property="og:description" content="撮るだけで読み取り。保存は iPhone の中だけ。名刺の情報を外に送らない名刺アプリです。">
+<meta property="og:url" content="https://takamasak62-gif.github.io/meishi-kinko/">
+<meta property="og:image" content="https://takamasak62-gif.github.io/meishi-kinko/img/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="apple-itunes-app" content="app-id=6815582493">
+<link rel="icon" href="img/mark.png">
+<style>
+  :root {
+    --paper:#F4EDDF; --paper-deep:#E1D4BB; --card:#FFFDF8;
+    --ink:#1A1C20; --sea:#133F55; --brass:#A9802F; --sub:#5E5A52; --line:#DDD2BC;
+  }
+  * { box-sizing:border-box; }
+  html { -webkit-text-size-adjust:100%; }
+  body { margin:0; background:var(--paper); color:var(--ink);
+         font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;
+         line-height:1.85; }
+  .mincho { font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif; font-weight:600; }
+  .wrap { max-width:56rem; margin:0 auto; padding:0 1.25rem; }
+  a { color:var(--sea); }
+
+  /* 冒頭 */
+  .hero { background:linear-gradient(180deg,var(--paper) 0%,var(--paper-deep) 100%);
+          padding:3.5rem 0 3rem; }
+  .hero .wrap { display:grid; grid-template-columns:1fr; gap:1.5rem; align-items:center; text-align:center; }
+  .hero img.mark { width:150px; height:150px; margin:0 auto; display:block; }
+  .eyebrow { color:var(--brass); font-size:.9rem; letter-spacing:.08em; margin:0; }
+  h1 { color:var(--sea); font-size:clamp(2rem,7vw,3.1rem); line-height:1.35; margin:.3rem 0 .8rem; letter-spacing:.04em; }
+  .lead { color:var(--sub); font-size:1.02rem; margin:0 0 1.6rem; }
+  .cta { display:inline-block; background:var(--sea); color:#fff; text-decoration:none;
+         padding:.95rem 2.1rem; border-radius:12px; font-weight:600; font-size:1.05rem; }
+  .cta:hover { opacity:.92; }
+  .cta-note { display:block; color:var(--sub); font-size:.82rem; margin-top:.7rem; }
+  @media (min-width:760px) {
+    .hero .wrap { grid-template-columns:220px 1fr; text-align:left; gap:2.5rem; }
+    .hero img.mark { width:210px; height:210px; }
+  }
+
+  section { padding:3.2rem 0; }
+  section + section { border-top:1px solid var(--line); }
+  h2 { color:var(--sea); font-size:clamp(1.4rem,4.6vw,1.9rem); line-height:1.5; margin:0 0 1.4rem; letter-spacing:.03em; }
+  .intro { color:var(--sub); margin:-.6rem 0 1.6rem; }
+
+  /* こんな方に */
+  .who { display:grid; grid-template-columns:1fr; gap:.9rem; }
+  @media (min-width:700px) { .who { grid-template-columns:repeat(3,1fr); } }
+  .who > div { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:1.1rem 1.2rem; }
+  .who h3 { font-size:1rem; margin:0 0 .35rem; color:var(--sea); }
+  .who p { font-size:.9rem; margin:0; color:var(--sub); }
+
+  /* 画面 */
+  .shots { display:flex; gap:1rem; overflow-x:auto; scroll-snap-type:x mandatory;
+           padding:.2rem 0 1rem; margin:0 -1.25rem; padding-left:1.25rem; padding-right:1.25rem; }
+  .shots img { width:220px; height:auto; flex:0 0 auto; border-radius:18px; scroll-snap-align:center;
+               box-shadow:0 6px 18px rgba(19,63,85,.14); }
+
+  /* 安心の理由 */
+  .points { list-style:none; padding:0; margin:0; display:grid; gap:1rem; }
+  @media (min-width:700px) { .points { grid-template-columns:1fr 1fr; } }
+  .points li { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:1.1rem 1.2rem; }
+  .points b { display:block; color:var(--sea); margin-bottom:.25rem; }
+  .points span { font-size:.92rem; color:var(--sub); }
+
+  /* 説明用の表 */
+  table { width:100%; border-collapse:collapse; background:var(--card); border-radius:12px; overflow:hidden;
+          border:1px solid var(--line); font-size:.92rem; }
+  th, td { text-align:left; padding:.8rem 1rem; border-bottom:1px solid var(--line); vertical-align:top; }
+  tr:last-child th, tr:last-child td { border-bottom:none; }
+  th { width:34%; color:var(--sea); font-weight:600; background:rgba(19,63,85,.04); }
+  .small { font-size:.82rem; color:var(--sub); margin-top:.8rem; }
+
+  /* 料金 */
+  .price { display:grid; grid-template-columns:1fr; gap:1rem; }
+  @media (min-width:700px) { .price { grid-template-columns:1fr 1fr; } }
+  .price > div { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:1.3rem 1.3rem; }
+  .price .num { font-size:1.9rem; color:var(--sea); line-height:1.3; }
+  .price p { margin:.3rem 0 0; font-size:.9rem; color:var(--sub); }
+
+  .honest li { margin-bottom:.4rem; font-size:.95rem; }
+
+  .final { text-align:center; }
+  footer { border-top:1px solid var(--line); padding:2rem 0 3rem; color:var(--sub); font-size:.85rem; text-align:center; }
+  footer a { margin:0 .6rem; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <img class="mark" src="img/mark.png" alt="名刺金庫のアイコン（名刺を入れる金庫）">
+    <div>
+      <p class="eyebrow">iPhone の名刺アプリ　名刺金庫</p>
+      <h1 class="mincho">クラウドに預けない<br>名刺管理。</h1>
+      <p class="lead">名刺を撮るだけで、氏名・会社・電話番号を読み取って整理します。<br>
+      読み取りも保存も iPhone の中だけ。名刺の情報を外へ送りません。</p>
+      <a class="cta" href="https://apps.apple.com/jp/app/id6815582493">App Store で見る</a>
+      <span class="cta-note">ダウンロード無料・20枚まで無料で保存できます</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap">
+      <h2 class="mincho">職場の決まりで、<br>クラウドの名刺アプリが使えない方へ</h2>
+      <p class="intro">よく知られた名刺アプリの多くは、名刺の画像や連絡先を運営会社のサーバーに送って管理します。
+      便利な反面、仕事のルール上それができない方もいます。名刺金庫は、そうした方のために作りました。</p>
+      <div class="who">
+        <div><h3>役所・学校・病院・福祉の職員</h3><p>外部のサービスに個人情報を預けられない職場でも、端末の中だけで完結します。</p></div>
+        <div><h3>士業・医療・相談の仕事</h3><p>守秘義務のある方の名刺を、誰かのクラウドに置かずに管理できます。</p></div>
+        <div><h3>議員・地域団体・後援会</h3><p>人のつながりそのものが大切な情報。名簿を外に出さずに、手元で整理できます。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="mincho">撮るだけで、名刺が整う</h2>
+      <div class="shots" aria-label="アプリの画面">
+        <img src="img/shot1.jpg" alt="名刺の一覧画面" loading="lazy">
+        <img src="img/shot2.jpg" alt="名刺の取り込み画面" loading="lazy">
+        <img src="img/shot3.jpg" alt="名刺の詳細画面" loading="lazy">
+        <img src="img/shot4.jpg" alt="しばらく会っていない人の一覧" loading="lazy">
+        <img src="img/shot5.jpg" alt="Excel などへの書き出し" loading="lazy">
+      </div>
+      <ul class="points" style="margin-top:1.2rem">
+        <li><b>読み取りは自動、確認は最小限</b><span>氏名・ふりがな・会社・役職・電話・メール・住所を振り分けます。自信がない欄にだけ印が付くので、そこだけ見直せば保存できます。</span></li>
+        <li><b>縦書きの名刺も</b><span>縦書きの名刺は自動で見分けて読み取ります。漢数字の電話番号にも対応しています。</span></li>
+        <li><b>同じ人をお知らせ</b><span>以前に保存した方と同じ名刺を撮ると、その場でお知らせします。名刺が二重になりません。</span></li>
+        <li><b>Excel・連絡先へ書き出し</b><span>Excel ブック、CSV、宛名印刷用の住所録、iPhone の連絡先に書き出せます。書き出しはずっと無料です。</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="mincho">情報システムの担当者・上司に<br>説明するときは</h2>
+      <p class="intro">利用の可否を確認されたときに、そのまま見せられるようにまとめました。</p>
+      <table>
+        <tr><th>名刺の情報の保存場所</th><td>利用者の iPhone の中だけです。運営者のサーバーはありません。</td></tr>
+        <tr><th>名刺の情報の送信</th><td>しません。文字の読み取り（OCR）も iPhone の中で行います。</td></tr>
+        <tr><th>アカウント登録</th><td>不要です。メールアドレスなども求めません。</td></tr>
+        <tr><th>通信が起きる場面</th><td>枚数の制限を解除する購入・復元・コードの入力のときだけ、iPhone が Apple の App Store と通信します（名刺の情報は含まれません）。</td></tr>
+        <tr><th>App Store の表示</th><td>「データの収集なし」</td></tr>
+        <tr><th>のぞき見への備え</th><td>アプリを開くときに Face ID などでロックをかけられます。</td></tr>
+        <tr><th>バックアップ</th><td>利用者が自分で書き出したときだけ、ファイルとして作られます。iPhone の iCloud バックアップを使っている場合は、他のアプリと同じように本人の iCloud に含まれます。</td></tr>
+        <tr><th>削除</th><td>アプリを削除すると、名刺の情報もすべて消えます。</td></tr>
+      </table>
+      <p class="small">詳しくは <a href="privacy.html">プライバシーポリシー</a> をご覧ください。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="mincho">料金</h2>
+      <div class="price">
+        <div><div class="num mincho">無料</div><p>名刺は20枚まで保存できます。読み取り・書き出しなど、機能はすべて使えます。</p></div>
+        <div><div class="num mincho">800円　買い切り</div><p>一度のお支払いで枚数の制限がなくなります。月額はありません。通信しないアプリなので、毎月かかる費用がないためです。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="mincho">苦手なこと（正直に）</h2>
+      <ul class="honest">
+        <li>印刷がかすれた名刺や、影・反射が強い写真は読み取りを間違えやすくなります。明るい場所で真上から撮ってください。</li>
+        <li>デザイン性の高い名刺（文字が斜め・装飾文字など）は、手で直す欄が増えます。</li>
+        <li>iPhone の中だけで動くため、パソコンや他の人との自動共有はできません。共有は Excel などへの書き出しで行います。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h2 class="mincho">まずは手元の名刺を1枚、<br>撮ってみてください。</h2>
+      <a class="cta" href="https://apps.apple.com/jp/app/id6815582493">App Store で見る</a>
+      <span class="cta-note">iPhone（iOS 17 以降）・日本の App Store で配信中</span>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="support.html">サポート・よくある質問</a><a href="privacy.html">プライバシーポリシー</a>
+    <p>提供：國吉 伯巨（KNOT）／沖縄県糸満市</p>
+  </div>
+</footer>
+
+</body>
+</html>
